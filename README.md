@@ -31,5 +31,10 @@ Specify the output format by adding `-f`
 ```bash
 npm run censor -- -i <input file> -f mp3
 ```
+Specify your own badword by using `-b`
+```bash
+npm run censor -- -i <input file> -b <badword>
+```
+
 ## License
 #### &nbsp;&nbsp;MIT
