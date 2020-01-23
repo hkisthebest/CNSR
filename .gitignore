@@ -1,0 +1,12 @@
+# all files in audios except censor.flac
+!audios
+audios/*
+!audios/censor.flac
+
+/credentials
+/node_modules
+/output
+TODO
+.DS_Store
+.gitattributes
+src/test.js
