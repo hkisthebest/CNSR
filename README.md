@@ -36,6 +36,8 @@ Specify your own badword by using `-b`
 ```bash
 npm run censor -- -i <input file> -b <badword>
 ```
+## Note
+The default censor audio is 24 bit depth. If your audio isn't, please provide your own censor audio.
 
 ## License
 #### &nbsp;&nbsp;MIT
