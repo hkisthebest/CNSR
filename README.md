@@ -14,6 +14,7 @@ CNSR also requires `ffmpeg`. Typing `ffmpeg` in command line to check if you hav
 ```bash
 brew install ffmpeg
 ```
+At last, the Google Cloud SDK [here](https://cloud.google.com/sdk/docs/downloads-interactive).
 
 
 ## Usage
