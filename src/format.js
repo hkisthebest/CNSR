@@ -8,8 +8,11 @@ module.exports = {
 	    })
 	    child.on('close', code => {
 		console.log(code)
-		if(code === 1){
-		    rej("File was not transformed to the correct format.");
+		if(code === -2){
+		    throw new Error("Please make sure ffmpeg is installed.");
+		}
+		else if(code != 0){
+		    throw new Error("File was not transformed to the correct format.");
 		}else{
 		    res('./audios/input.flac');
 		}

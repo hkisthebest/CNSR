@@ -49,11 +49,7 @@ const wordsToFilter = (function(){
 })();
 
 
-
 async function init(inputFile){
-    if(!checkCommand('ffmpeg')){
-	throw new Error("Please make sure ffmpeg is installed.");
-    }
     rimraf('./output', err => {
 	if(err) throw err;
     });
