@@ -15,6 +15,7 @@
     "@google-cloud/speech": "^3.4.0",
     "chalk": "^3.0.0",
     "combined-stream": "^1.0.5",
+    "command-exists": "^1.2.8",
     "ffprobe": "^1.1.0",
     "ffprobe-static": "^3.0.0",
     "fluent-ffmpeg": "^2.1.2",

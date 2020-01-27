@@ -3,7 +3,7 @@ const { getAudioDurationInSeconds } = require('get-audio-duration');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
-const { checkFormat } = require('./check.js');
+const { checkFormat, checkCommand } = require('./check.js');
 const { toFlac, format } = require('./format.js');
 const { trim, concat } = require('./ffmpeg.js');
 const { speechToText } = require('./speech_to_text.js');
@@ -51,6 +51,9 @@ const wordsToFilter = (function(){
 
 
 async function init(inputFile){
+    if(!checkCommand('ffmpeg')){
+	throw new Error("Please make sure ffmpeg is installed.");
+    }
     rimraf('./output', err => {
 	if(err) throw err;
     });

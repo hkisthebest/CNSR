@@ -1,6 +1,7 @@
 const { spawn } = require('child_process');
 const ffprobe = require('ffprobe');
 const ffprobeStatic = require('ffprobe-static');
+const commandExists = require('command-exists').sync;
 module.exports = {
     checkFormat:  async function(file1, file2){
 	let info1 = await ffprobe(file1, { path: ffprobeStatic.path });
@@ -14,5 +15,8 @@ module.exports = {
 	}else{
 	    return false
 	}
+    },
+    checkCommand:function(command){
+	return commandExists(command);
     }
 }
