@@ -15,6 +15,11 @@ const yargs = require('yargs').options({
 	describe:'Input audio.',
 	demandOption:true
     },
+    'ginput':{
+	alias:'g',
+	describe:'URI from google storage.',
+	demandOption:true
+    },
     'format':{
 	alias: 'f',
 	describe: "File output format. Default format is FLAC.",
@@ -75,7 +80,7 @@ async function main() {
 	const inputFile = await toFlac(yargs.argv.input);
 	await init(inputFile);
 	//get all the badwords in the script.
-	const badwords = await speechToText(inputFile, wordsToFilter);
+	const badwords = await speechToText(yargs.argv.ginput, wordsToFilter);
 	console.log(badwords);
 	//get the audio duration.
 	const audioDuration = await getAudioDurationInSeconds(inputFile);

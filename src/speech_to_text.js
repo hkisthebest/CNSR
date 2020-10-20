@@ -4,18 +4,18 @@ const speech = require('@google-cloud/speech');
 const fs = require('fs');
 
 module.exports = {
-    speechToText: async function (fileName, badwords) {
+    speechToText: async function (uri, badwords) {
 	let Words = [];
 
 	// Creates a client
 	const client = new speech.SpeechClient();
 
-	const file = fs.readFileSync(fileName);
-	const audioBytes = file.toString('base64');
+	//const file = fs.readFileSync(fileName);
+	//const audioBytes = file.toString('base64');
 
 	// The audio file's encoding, sample rate in hertz, and BCP-47 language code
 	const audio = {
-	    content: audioBytes,
+	    "uri": uri
 	};
 	const config = {
 	    encoding: 'flac',

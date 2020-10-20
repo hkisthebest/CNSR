@@ -16,7 +16,7 @@ let sanitize = function (badwords, inputFile, beepFile, audioDuration) {
 	    } else {
 		promiseArr.push(trim(badwords[i].startTime - badwords[i - 1].endTime, inputFile, i + "oriAudio.flac", badwords[i - 1].endTime).then(() => true).catch(() => false));
 		linkedList.insertAtEnd(i + "oriAudio.flac");
-		promiseArr.push(trim(badwords[i].duration, beepFile, i + "censorAudio.flac", badwords[i - 1].endTime).then(() => true).catch(() => false));
+		promiseArr.push(trim(badwords[i].duration, beepFile, i + "censorAudio.flac").then(() => true).catch(() => false));
 		linkedList.insertAtEnd(i + "censorAudio.flac");
 	    }
 	}
