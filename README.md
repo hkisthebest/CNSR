@@ -20,21 +20,21 @@ At last, the Google Cloud SDK [here](https://cloud.google.com/sdk/docs/downloads
 ## Usage
 At the project root directory.
 ```bash
-npm run censor -- -i <input file>
+npm run censor -- -i <input file> -g <google cloud storage URI>
 ```
-`-i` is required.  
+`-i` and `-g` is required.  
   
 Add the censor file yourself, if not provided, the default censor file in audios would be used.
 ```bash
-npm run censor -- -i <input file> -c <censor file>
+npm run censor -- -i <input file> -g <google cloud storage URI> -c <censor file>
 ```
 Specify the output format by adding `-f`
 ```bash
-npm run censor -- -i <input file> -f mp3
+npm run censor -- -i <input file> -g <google cloud storage URI> -f mp3
 ```
 Specify your own badword by using `-b`
 ```bash
-npm run censor -- -i <input file> -b <badword>
+npm run censor -- -i <input file> -g <google cloud storage URI> -b <badword>
 ```
 ## Note
 The default censor audio is 24 bit depth. If your audio isn't, please provide your own censor audio.
