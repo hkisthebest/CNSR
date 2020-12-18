@@ -106,7 +106,7 @@ async function main() {
 	    new Error("Not all audio are sanitized.");
 	}
     }catch(err){
-	return err;
+	return err.toString();
     }
 }
 

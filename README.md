@@ -6,7 +6,8 @@ CNSR is an audio censor written in Javascript, using Node.js.
 
 ## Setup
 
-CNSR uses Google Speech-to-text API, so a google credential is required. Setup your project [here](https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries). Remember to point the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to your credentials.
+CNSR uses Google Speech-to-text API, so a google credential is required. Setup your project [here](https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries). Remember to point the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to your credentials. In order to convert audio longer than 1 minute to text with the Google Speech-to-text API, uploading the audio(the encoding should be flac to increase the accuracy of the speech-to-text process) to the cloud storage is required.
+
 ```
 npm install
 ```
@@ -18,13 +19,13 @@ At last, the Google Cloud SDK [here](https://cloud.google.com/sdk/docs/downloads
 
 
 ## Usage
-At the project root directory.
+At the project root directory. The reason to both specify the URI and the input file is because the URI is only used in the Speech-to-text process, and the input file is used for trimming.
 ```bash
 npm run censor -- -i <input file> -g <google cloud storage URI>
 ```
 `-i` and `-g` is required.  
   
-Add the censor file yourself, if not provided, the default censor file in audios would be used.
+Add the censor file yourself, if not provided, the default censor file in the audios directory would be used.
 ```bash
 npm run censor -- -i <input file> -g <google cloud storage URI> -c <censor file>
 ```

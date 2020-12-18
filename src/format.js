@@ -24,15 +24,16 @@ module.exports = {
 	console.log(format);
 	return new Promise((res, rej) => {
 	    const child = spawn('ffmpeg', ['-y', '-i', './output/output.flac', './output/output.'+format ]);
-	    child.on('error', err => {
-		rej(err);
+	    child.stderr.on('data', err => {
+	        console.log(err.toString());
+	    //    rej(err);
 	    })
 	    child.on('close', code => {
-		console.log(code)
+		console.log(code);
 		if(code === 1){
-		    rej("File was not transformed to the specified format.");
+		    console.log("File was not transformed to the specified format.");
 		}else{
-		    res('Done');
+		    res();
 		}
 	    })
 
