@@ -26,7 +26,6 @@ module.exports = {
 	    const child = spawn('ffmpeg', ['-y', '-i', './output/output.flac', './output/output.'+format ]);
 	    child.stderr.on('data', err => {
 	        console.log(err.toString());
-	    //    rej(err);
 	    })
 	    child.on('close', code => {
 		console.log(code);
